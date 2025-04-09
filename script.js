@@ -17,13 +17,13 @@ let servers = {
 }
 
 let init = async () => {
-    // client = await AgoraRTM.createInstance(APP_ID);
-    // await client.login({uid,token});       //login client
+    client = await AgoraRTM.createInstance(APP_ID);
+    await client.login({uid,token});       //login client
 
-    // const channel = client.createChannel('main');   //once the client is logged in we create a channel
-    // channel.join();
+    const channel = client.createChannel('main');   //once the client is logged in we create a channel
+    channel.join();
 
-    // channel.on('MemberJoined',handlePeerJoined);
+    channel.on('MemberJoined',handlePeerJoined);
 
     localStream = await navigator.mediaDevices.getUserMedia({video: true, audio: false});
     try{
